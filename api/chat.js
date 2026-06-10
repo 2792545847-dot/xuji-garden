@@ -9,10 +9,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: 'Missing messages array' });
     }
 
-    const apiKey = process.env.DEEPSEEK_API_KEY;
-    if (!apiKey) {
-      return res.status(500).json({ ok: false, error: 'Server misconfigured: missing API key' });
-    }
+    const apiKey = 'sk-42eca51044284a3abb920672112a176e';
 
     const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
