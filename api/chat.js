@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     const apiKey = 'sk-42eca51044284a3abb920672112a176e';
 
-    const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    const response = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
