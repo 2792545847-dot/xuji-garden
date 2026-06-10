@@ -3,21 +3,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>叙己 - Garden</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-// Image proxy: rewrite all lh3.googleusercontent.com URLs through Vercel API
-window.__proxy=function(u){
-  if(!u||u.indexOf('lh3.googleusercontent.com')===-1)return u;
-  return'/api/image?src='+encodeURIComponent(u);
-};
-// Patch img src globals before anything renders
-(function(){
-  var orig=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');
-  Object.defineProperty(HTMLImageElement.prototype,'src',{
-    get:orig.get,
-    set:function(v){orig.set.call(this,window.__proxy(v));}
-  });
-})();
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -86,13 +73,13 @@ window.__proxy=function(u){
                 "gutter": "24px"
         },
         "fontFamily": {
-                "body-md": [ "system-ui", "-apple-system", "sans-serif" ],
-                "body-lg": [ "system-ui", "-apple-system", "sans-serif" ],
-                "label-sm": [ "system-ui", "-apple-system", "sans-serif" ],
-                "headline-lg": [ "Georgia", "serif" ],
-                "headline-md": [ "Georgia", "serif" ],
-                "headline-lg-mobile": [ "Georgia", "serif" ],
-                "display-accent": [ "Georgia", "serif" ]
+                "body-md": [ "plusJakartaSans" ],
+                "body-lg": [ "plusJakartaSans" ],
+                "label-sm": [ "plusJakartaSans" ],
+                "headline-lg": [ "notoSerif" ],
+                "headline-md": [ "notoSerif" ],
+                "headline-lg-mobile": [ "notoSerif" ],
+                "display-accent": [ "notoSerif" ]
         },
         "fontSize": {
                 "body-md": [ "16px", { "lineHeight": "1.6", "fontWeight": "400" } ],
@@ -120,13 +107,19 @@ window.__proxy=function(u){
         min-height: 100vh;
         transition: background-image 0.5s ease;
     }
-    .bg-home { background-color: #fdf9f0; }
-    .bg-river { background-color: #fdf9f0; }
+    .bg-home {
+        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCdLTawdAFacGQVz8kYAL8hh5r7zHrmnhEJhPP7v8ql58eYve60bOc_R8F92WTefl_i2-CcB8eDanjZu-H3vXr8o3hXkqhyoPurih02z0d5aNh5_X7MkvAUZDP2ruxMtK9igHbsKdwAvOzmTNcRwdYhmgGIT0-FWw1MF_gWdfe1lIALdt9MzmJWGIJXgSup0SyGQVAV4qe1J88_LNQYaLdfMsRYAGqzMMZ1tIurIOBMHnrNAO7ae7Oipa96FvwWVB3zizidrbTE_SU');
+    }
+    .bg-river {
+        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCS1vnjN1TRsXqtAO0ptCZffP6i9Y1TyRDMeIUM5cSvK1F1eUewceX6G0l0hisIZxnUTh5wYyp92wERny4Vf_1hgLRVlrmuuMUoV81JQ91e_6pxRey0khcq8qIBIIQhKKRC-s_wPco0_GqCSXhVx7Fc2qemTSkQwJyeG-JydunIWoHeAHFEBFywj1nNBUe3D32ur30yj2p-uci87ix3GimJqKEC3HiA5bbyd6Y3uffOtfl_EWcp4AIt66E0322z7_UaBEMCHdk45pg');
+    }
     .bg-plain {
         background-image: none;
         background-color: #fdf9f0;
     }
-    .bg-lottery { background-color: #fdf9f0; }
+    .bg-lottery {
+        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5rp-KpnOE_CTX8MHPwrJo_TnOeLXGLVQi7Xqu8gQOD7hq_g7EEISBl-rwX8E5HU1x36soulbapx99E9iut3P_yjcA5U0utv9SpKSZKyA0YkoKjds6llUvTPtsqNBTlth2z91J9nMaA-XAc4n7nMbNqRvqXjNWmUVtDueXzIwS2BnzUf-dPqYOsyHQUzmh8QusSmWUtTGnh7ncH2CSMEL7DDtRa5CSBW6upQNpQ2FRpbNSfC7fqxwrQXFIho2YgZSVFuglvvaScbw');
+    }
     .glass-panel {
         background: rgba(253, 249, 240, 0.85);
         backdrop-filter: blur(20px);
@@ -318,7 +311,7 @@ window.__proxy=function(u){
         max-width: 80%;
         align-self: flex-end;
         box-shadow: 0 4px 12px rgba(143, 166, 145, 0.1);
-        font-family: 'Noto Serif', Georgia, serif;
+        font-family: 'Noto Serif', serif;
     }
     .chat-bubble-ai {
         background: #ffffff;
@@ -329,7 +322,7 @@ window.__proxy=function(u){
         align-self: flex-start;
         box-shadow: 0 4px 12px rgba(143, 166, 145, 0.1);
         border: 1px solid #f2ede4;
-        font-family: 'Noto Serif', Georgia, serif;
+        font-family: 'Noto Serif', serif;
     }
     
     .page-section {
@@ -342,11 +335,6 @@ window.__proxy=function(u){
     }
     .page-section.active {
         display: flex;
-    }
-
-    /* Material Symbols fallback: use unicode characters */
-    .material-symbols-outlined {
-        font-family: system-ui, -apple-system, sans-serif;
     }
 </style>
 </head>
