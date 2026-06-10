@@ -9,13 +9,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: 'Missing messages array' });
     }
 
-    const apiKey = 'sk-42eca51044284a3abb920672112a176e';
-
-    const response = await fetch('https://api.deepseek.com/chat/completions', {
+    const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer sk-8c592729de0f4ffb8667c8b14e93b713`,
       },
       body: JSON.stringify({
         model: 'deepseek-chat',
